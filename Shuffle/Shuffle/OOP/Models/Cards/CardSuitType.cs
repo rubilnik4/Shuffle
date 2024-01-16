@@ -1,4 +1,4 @@
-﻿namespace Shuffle.Models.Cards;
+﻿namespace Shuffle.OOP.Models.Cards;
 
 /// <summary>
 /// Масть карты

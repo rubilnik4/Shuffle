@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Shuffle.Models.Cards;
+namespace Shuffle.OOP.Models.Cards;
 
 /// <summary>
 /// Колода карт

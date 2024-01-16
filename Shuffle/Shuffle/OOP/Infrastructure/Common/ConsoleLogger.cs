@@ -1,4 +1,4 @@
-﻿namespace Shuffle.Infrastructure.Common;
+﻿namespace Shuffle.OOP.Infrastructure.Common;
 
 /// <summary>
 /// Логгер

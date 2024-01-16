@@ -1,7 +1,7 @@
-﻿using Shuffle.Infrastructure.Common;
-using Shuffle.Models.Cards;
+﻿using Shuffle.OOP.Infrastructure.Common;
+using Shuffle.OOP.Models.Cards;
 
-namespace Shuffle.Infrastructure.Cards;
+namespace Shuffle.OOP.Infrastructure.Cards;
 
 /// <summary>
 /// Управление колодой

@@ -1,6 +1,6 @@
 ﻿using Shuffle.Models;
 
-namespace Shuffle.Infrastructure.Cards;
+namespace Shuffle.OOP.Infrastructure.Cards;
 
 /// <summary>
 /// Управление колодой

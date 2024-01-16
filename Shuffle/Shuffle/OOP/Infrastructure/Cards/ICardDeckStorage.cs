@@ -1,6 +1,6 @@
-﻿using Shuffle.Models.Cards;
+﻿using Shuffle.OOP.Models.Cards;
 
-namespace Shuffle.Infrastructure.Cards;
+namespace Shuffle.OOP.Infrastructure.Cards;
 
 /// <summary>
 /// Хранилище игральных колод

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Shuffle.Models;
+namespace Shuffle.Models.Cards;
 
 /// <summary>
 /// Колода карт
@@ -12,7 +12,7 @@ public class CardDeck
         DeckName = deckName;
         Cards = cards;
     }
-    
+
     /// <summary>
     /// Идентификатор колоды
     /// </summary>

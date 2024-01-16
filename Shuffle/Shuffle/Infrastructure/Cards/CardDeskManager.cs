@@ -1,6 +1,7 @@
-﻿using Shuffle.Models;
+﻿using Shuffle.Infrastructure.Common;
+using Shuffle.Models.Cards;
 
-namespace Shuffle.Infrastructure;
+namespace Shuffle.Infrastructure.Cards;
 
 /// <summary>
 /// Управление колодой
@@ -42,7 +43,7 @@ public class CardDeskManager : ICardDeskManager
     public void CreateDesk()
     {
         var cardDeskName = _inputProvider.GetValue("Введите название колоды");
-        if (String.IsNullOrEmpty(cardDeskName))
+        if (string.IsNullOrEmpty(cardDeskName))
             throw new ArgumentNullException(nameof(cardDeskName));
 
         _logger.Log($"Создание колоды {cardDeskName}");
@@ -58,7 +59,7 @@ public class CardDeskManager : ICardDeskManager
     public void ShuffleDesk()
     {
         var cardDeskName = _inputProvider.GetValue("Введите название колоды");
-        if (String.IsNullOrEmpty(cardDeskName))
+        if (string.IsNullOrEmpty(cardDeskName))
             throw new ArgumentNullException(nameof(cardDeskName));
 
         _logger.Log($"Получение колоды {cardDeskName}");
@@ -77,7 +78,7 @@ public class CardDeskManager : ICardDeskManager
     public void DeleteDesk()
     {
         var cardDeskName = _inputProvider.GetValue("Введите название колоды");
-        if (String.IsNullOrEmpty(cardDeskName))
+        if (string.IsNullOrEmpty(cardDeskName))
             throw new ArgumentNullException(nameof(cardDeskName));
 
         _logger.Log($"Удаление колоды {cardDeskName}");
@@ -102,7 +103,7 @@ public class CardDeskManager : ICardDeskManager
     public void ShowCardDesk()
     {
         var cardDeskName = _inputProvider.GetValue("Введите название колоды");
-        if (String.IsNullOrEmpty(cardDeskName))
+        if (string.IsNullOrEmpty(cardDeskName))
             throw new ArgumentNullException(nameof(cardDeskName));
 
         var cardDesk = _cardDeckStorage.GetCardDesk(cardDeskName);

@@ -1,6 +1,6 @@
-﻿using Shuffle.Models;
+﻿using Shuffle.Models.Cards;
 
-namespace Shuffle.Infrastructure;
+namespace Shuffle.Infrastructure.Cards;
 
 /// <summary>
 /// Перетасовка карт

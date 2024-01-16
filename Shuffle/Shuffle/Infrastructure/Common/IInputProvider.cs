@@ -1,4 +1,4 @@
-﻿namespace Shuffle.Infrastructure;
+﻿namespace Shuffle.Infrastructure.Common;
 
 /// <summary>
 /// Ввод данных

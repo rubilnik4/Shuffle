@@ -12,7 +12,7 @@ public class CardFisherYatesShuffle : ICardShuffle
     /// </summary>
     public IReadOnlyList<Card> Shuffle(IReadOnlyList<Card> cards)
     {
-        var cardsShuffled = new Card[cards.Count - 1];
+        var cardsShuffled = new Card[cards.Count];
         var randomizer = new Random();
         for (var i = 0; i < cards.Count; i++)
         {

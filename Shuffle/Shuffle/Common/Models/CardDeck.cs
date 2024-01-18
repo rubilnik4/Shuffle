@@ -1,13 +1,14 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Immutable;
+using System.ComponentModel;
 
-namespace Shuffle.OOP.Models.Cards;
+namespace Shuffle.Common.Models;
 
 /// <summary>
 /// Колода карт
 /// </summary>
 public class CardDeck
 {
-    public CardDeck(string deckName, IReadOnlyList<Card> cards)
+    public CardDeck(string deckName, IImmutableList<Card> cards)
     {
         DeckName = deckName;
         Cards = cards;
@@ -21,5 +22,5 @@ public class CardDeck
     /// <summary>
     /// Карты
     /// </summary>
-    public IReadOnlyList<Card> Cards { get; }
+    public IImmutableList<Card> Cards { get; }
 }

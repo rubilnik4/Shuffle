@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Functional\" />
+    <PackageReference Include="LanguageExt.Core" Version="4.4.7" />
   </ItemGroup>
 
 </Project>

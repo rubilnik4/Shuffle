@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace Shuffle.OOP.Models.Cards;
+namespace Shuffle.Common.Models;
 
 /// <summary>
 /// Тип карточной колоды

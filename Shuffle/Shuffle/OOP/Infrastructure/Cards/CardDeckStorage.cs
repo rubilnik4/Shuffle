@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using Shuffle.OOP.Models.Cards;
+using Shuffle.Common.Models;
 
 namespace Shuffle.OOP.Infrastructure.Cards;
 

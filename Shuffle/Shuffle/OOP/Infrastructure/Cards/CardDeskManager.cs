@@ -1,5 +1,5 @@
-﻿using Shuffle.OOP.Infrastructure.Common;
-using Shuffle.OOP.Models.Cards;
+﻿using Shuffle.Common.Models;
+using Shuffle.OOP.Infrastructure.Common;
 
 namespace Shuffle.OOP.Infrastructure.Cards;
 

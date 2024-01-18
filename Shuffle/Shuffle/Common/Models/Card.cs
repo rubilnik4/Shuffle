@@ -1,4 +1,4 @@
-﻿namespace Shuffle.OOP.Models.Cards;
+﻿namespace Shuffle.Common.Models;
 
 /// <summary>
 /// Карта

@@ -13,11 +13,11 @@ public static class CardDeskFFactory
     /// <summary>
     /// Создать колоду определенного типа
     /// </summary>
-    public static Validation<Error, CardDeck> CreateCardDeck(CardDeckType cardDeckType, string cardDeskName) =>
+    public static Validation<Error, CardDeck> CreateCardDeck(CardDeckType cardDeckType, string cardDeckName) =>
         cardDeckType switch
         {
-            CardDeckType.Standard36 => GetDeck32(cardDeskName),
-            CardDeckType.Standard52 => GetDeck52(cardDeskName),
+            CardDeckType.Standard36 => GetDeck32(cardDeckName),
+            CardDeckType.Standard52 => GetDeck52(cardDeckName),
             _ => Error.New(new ArgumentOutOfRangeException(nameof(cardDeckType), cardDeckType, null))
         };
 

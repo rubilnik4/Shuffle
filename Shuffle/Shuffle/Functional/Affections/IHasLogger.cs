@@ -5,7 +5,7 @@ using Shuffle.Functional.IO.Common;
 namespace Shuffle.Functional.Affections;
 
 /// <summary>
-/// Консоль
+/// Логгер
 /// </summary>
 public interface IHasLogger<TRun>
     where TRun : struct

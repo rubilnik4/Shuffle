@@ -17,7 +17,8 @@ var cardDeskManager = new CardDeskManager(cardDeskFactory, cardDeskStorage, logg
 
 var cardDeckStorageIO = new CardDeckStorageIO();
 var loggerIO = new LoggerIO();
-var cardRuntime = new CardRuntime(cardDeckStorageIO, loggerIO);
+var inputProviderIO = new InputProviderIO();
+var cardRuntime = new CardRuntime(cardDeckStorageIO, loggerIO, inputProviderIO);
 var eff = MenuProgram<CardRuntime>.Start().Run(cardRuntime);
 
 eff.Match(_ => Console.WriteLine("Success"), 

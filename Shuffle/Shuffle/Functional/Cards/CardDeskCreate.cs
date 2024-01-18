@@ -11,26 +11,24 @@ namespace Shuffle.Functional.Cards;
 /// Создание карточной колоды
 /// </summary>
 public static class CardDeskCreate<TRun>
-    where TRun : struct, IHasCardDeskStorage<TRun>, IHasLogger<TRun>
+    where TRun : struct, IHasCardDeskStorage<TRun>, IHasLogger<TRun>, IHasInputProvider<TRun>
 {
     /// <summary>
     /// Инициализировать колоду
     /// </summary>
-    public static Eff<TRun, string> CreateDeskCard()
-    {
-        var cardDeskName = from cardDeck in CreteCardDeck()
-                           from _1 in Logger<TRun>.Log($"Создана колода {cardDeck.DeckName}")
-                           from cardDeckName in AddCardDeckToStorage(cardDeck)
-                           from _2 in Logger<TRun>.Log($"Колода {cardDeck.DeckName} записана в базу")
-                           select cardDeckName;
-        return cardDeskName;
-    }
+    public static Eff<TRun, string> CreateDeskCard() =>
+        from cardDeckName in InputProvider<TRun>.GetValue("Введите название колоды")
+        from cardDeck in CreteCardDeck(cardDeckName)
+        from _1 in Logger<TRun>.Log($"Создана колода {cardDeck.DeckName}")
+        from addCardDeckName in AddCardDeckToStorage(cardDeck)
+        from _2 in Logger<TRun>.Log($"Колода {cardDeck.DeckName} записана в базу")
+        select addCardDeckName;
 
     /// <summary>
     /// Создать карточную колоду
     /// </summary>
-    private static Eff<TRun, CardDeck> CreteCardDeck() =>
-        CardDeskFFactory.CreateCardDeck(CardDeckType.Standard52, "Хуй")
+    private static Eff<TRun, CardDeck> CreteCardDeck(string cardDeckName) =>
+        CardDeskFFactory.CreateCardDeck(CardDeckType.Standard52, cardDeckName)
             .ToEff(errors => errors.First());
 
     /// <summary>

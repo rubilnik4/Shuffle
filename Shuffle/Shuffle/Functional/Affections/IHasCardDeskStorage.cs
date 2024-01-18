@@ -1,5 +1,5 @@
 ﻿using LanguageExt;
-using Shuffle.Functional.Cards;
+using Shuffle.Functional.IO.Cards;
 
 namespace Shuffle.Functional.Affections;
 
@@ -12,5 +12,5 @@ public interface IHasCardDeskStorage<TRun>
     /// <summary>
     /// Хранилище карт
     /// </summary>
-    Eff<TRun, ICardDeskFStorage> CardDeskStorageEff { get; }
+    Eff<TRun, ICardDeskStorageIO> CardDeskStorageEff { get; }
 }

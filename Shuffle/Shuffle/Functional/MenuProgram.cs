@@ -8,7 +8,7 @@ namespace Shuffle.Functional;
 /// Старт приложения
 /// </summary>
 public static class MenuProgram<TRun>
-    where TRun : struct, IHasCardDeskStorage<TRun>
+    where TRun : struct, IHasCardDeskStorage<TRun>, IHasLogger<TRun>
 {
     /// <summary>
     /// Запустить

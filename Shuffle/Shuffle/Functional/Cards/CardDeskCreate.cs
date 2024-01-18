@@ -3,6 +3,7 @@ using LanguageExt.ClassInstances.Pred;
 using LanguageExt.Common;
 using Shuffle.Common.Models;
 using Shuffle.Functional.Affections;
+using Shuffle.Functional.IO.Common;
 
 namespace Shuffle.Functional.Cards;
 
@@ -10,7 +11,7 @@ namespace Shuffle.Functional.Cards;
 /// Создание карточной колоды
 /// </summary>
 public static class CardDeskCreate<TRun>
-    where TRun : struct, IHasCardDeskStorage<TRun>
+    where TRun : struct, IHasCardDeskStorage<TRun>, IHasLogger<TRun>
 {
     /// <summary>
     /// Инициализировать колоду
@@ -18,7 +19,9 @@ public static class CardDeskCreate<TRun>
     public static Eff<TRun, string> CreateDeskCard()
     {
         var cardDeskName = from cardDeck in CreteCardDeck()
+                           from _1 in Logger<TRun>.Log($"Создана колода {cardDeck.DeckName}")
                            from cardDeckName in AddCardDeckToStorage(cardDeck)
+                           from _2 in Logger<TRun>.Log($"Колода {cardDeck.DeckName} записана в базу")
                            select cardDeckName;
         return cardDeskName;
     }

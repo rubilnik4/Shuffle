@@ -2,12 +2,12 @@
 using LanguageExt.Common;
 using Shuffle.Common.Models;
 
-namespace Shuffle.Functional.Cards;
+namespace Shuffle.Functional.IO.Cards;
 
 /// <summary>
 /// Хранилище игральных колод
 /// </summary>
-public interface ICardDeskFStorage
+public interface ICardDeskStorageIO
 {
     /// <summary>
     /// Добавить колоду

@@ -3,6 +3,8 @@
 using LanguageExt;
 using Shuffle.Functional;
 using Shuffle.Functional.Cards;
+using Shuffle.Functional.IO.Cards;
+using Shuffle.Functional.IO.Common;
 using Shuffle.OOP.Infrastructure.Cards;
 using Shuffle.OOP.Infrastructure.Common;
 
@@ -13,8 +15,9 @@ var logger = new ConsoleLogger();
 var inputProvider = new ConsoleInputProvider();
 var cardDeskManager = new CardDeskManager(cardDeskFactory, cardDeskStorage, logger, inputProvider);
 
-var cardDeskFStorage = new CardDeckFStorage();
-var cardRuntime = new CardRuntime(cardDeskFStorage);
+var cardDeckStorageIO = new CardDeckStorageIO();
+var loggerIO = new LoggerIO();
+var cardRuntime = new CardRuntime(cardDeckStorageIO, loggerIO);
 var eff = MenuProgram<CardRuntime>.Start().Run(cardRuntime);
 
 eff.Match(_ => Console.WriteLine("Success"), 

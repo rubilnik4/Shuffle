@@ -4,12 +4,12 @@ using System.Data;
 using LanguageExt;
 using LanguageExt.Common;
 
-namespace Shuffle.Functional.Cards;
+namespace Shuffle.Functional.IO.Cards;
 
 /// <summary>
 /// Хранилище игральных колод
 /// </summary>
-public class CardDeckFStorage : ICardDeskFStorage
+public class CardDeckStorageIO : ICardDeskStorageIO
 {
     /// <summary>
     /// Карточные колоды

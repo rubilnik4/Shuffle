@@ -3,7 +3,7 @@ using LanguageExt;
 using LanguageExt.Common;
 using Shuffle.Common.Models;
 
-namespace Shuffle.Functional;
+namespace Shuffle.Functional.Cards;
 
 /// <summary>
 /// Создание колоды

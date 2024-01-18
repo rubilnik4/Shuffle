@@ -8,7 +8,7 @@ namespace Shuffle.Common.Models;
 /// </summary>
 public class CardDeck
 {
-    public CardDeck(string deckName, IImmutableList<Card> cards)
+    public CardDeck(string deckName, IReadOnlyList<Card> cards)
     {
         DeckName = deckName;
         Cards = cards;
@@ -22,5 +22,5 @@ public class CardDeck
     /// <summary>
     /// Карты
     /// </summary>
-    public IImmutableList<Card> Cards { get; }
+    public IReadOnlyList<Card> Cards { get; }
 }

@@ -1,16 +1,16 @@
 ﻿using LanguageExt;
+using Shuffle.Functional.Cards;
 
-namespace Shuffle.Functional;
+namespace Shuffle.Functional.Affections;
 
 /// <summary>
 /// Тип класс для получения хранилища карт
 /// </summary>
-/// <typeparam name="RT"></typeparam>
-public interface IHasCardDeskStorage<RT>
-    where RT : struct
+public interface IHasCardDeskStorage<TRun>
+    where TRun : struct
 {
     /// <summary>
     /// Хранилище карт
     /// </summary>
-    Eff<RT, ICardDeskFStorage> CardDeskStorageEff { get; }
+    Eff<TRun, ICardDeskFStorage> CardDeskStorageEff { get; }
 }

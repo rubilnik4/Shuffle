@@ -2,8 +2,9 @@
 using LanguageExt.ClassInstances.Pred;
 using LanguageExt.Common;
 using Shuffle.Common.Models;
+using Shuffle.Functional.Affections;
 
-namespace Shuffle.Functional;
+namespace Shuffle.Functional.Cards;
 
 /// <summary>
 /// Создание карточной колоды
@@ -17,8 +18,8 @@ public static class CardDeskCreate<TRun>
     public static Eff<TRun, string> CreateDeskCard()
     {
         var cardDeskName = from cardDeck in CreteCardDeck()
-                           from card1 in AddCardDeckToStorage(cardDeck)
-                           select cardDeck.DeckName;
+                           from cardDeckName in AddCardDeckToStorage(cardDeck)
+                           select cardDeckName;
         return cardDeskName;
     }
 

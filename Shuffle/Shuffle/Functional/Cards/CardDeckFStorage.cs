@@ -4,12 +4,12 @@ using System.Data;
 using LanguageExt;
 using LanguageExt.Common;
 
-namespace Shuffle.Functional;
+namespace Shuffle.Functional.Cards;
 
 /// <summary>
 /// Хранилище игральных колод
 /// </summary>
-public class CardDeskFStorage: ICardDeskFStorage
+public class CardDeckFStorage : ICardDeskFStorage
 {
     /// <summary>
     /// Карточные колоды
@@ -19,7 +19,7 @@ public class CardDeskFStorage: ICardDeskFStorage
     /// <summary>
     /// Добавить колоду
     /// </summary>
-    public Validation<Error,string> AddDesk(CardDeck cardDeck)
+    public Validation<Error, string> AddDesk(CardDeck cardDeck)
     {
         if (_cardDesks.ContainsKey(cardDeck.DeckName))
             return Error.New(new DuplicateNameException($"Card desk {cardDeck.DeckName} already exist"));

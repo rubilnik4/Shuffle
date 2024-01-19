@@ -27,6 +27,13 @@ public static class CardDeckStorage<TRun>
                       .ToEff(errors => errors.First()));
 
     /// <summary>
+    /// Получить колоду из базы
+    /// </summary>
+    public static Eff<TRun, Seq<string>> GetCardDeckNames() =>
+        default(TRun).CardDeskStorageEff
+            .Bind(storage => Prelude.SuccessEff(storage.GetCardDeskNames()));
+
+    /// <summary>
     /// Обновить колоду в базе
     /// </summary>
     public static Eff<TRun, Unit> UpdateCardDeck(CardDeck cardDeck) =>

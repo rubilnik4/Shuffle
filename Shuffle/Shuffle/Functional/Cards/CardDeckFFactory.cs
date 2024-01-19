@@ -23,15 +23,6 @@ public static class CardDeckFFactory
         };
 
     /// <summary>
-    /// Перетасовать колоду
-    /// </summary>
-    public static CardDeck ShuffleCardDeck(CardDeck cardDeck, Func<IReadOnlyList<Card>, IReadOnlyList<Card>> shuffle)
-    {
-        var cards = shuffle(cardDeck.Cards);
-        return new CardDeck(cardDeck.DeckName, cards);
-    }
-
-    /// <summary>
     /// Получить колоду на 52 карты
     /// </summary>
     private static CardDeck GetDeck52(string deckName)

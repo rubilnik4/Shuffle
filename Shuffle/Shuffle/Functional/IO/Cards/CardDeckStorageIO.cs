@@ -60,4 +60,10 @@ public class CardDeckStorageIO : ICardDeskStorageIO
         _cardDesks.Remove(cardDeckName);
         return cardDeck;
     }
+
+    /// <summary>
+    /// Список наименований колод
+    /// </summary>
+    public Seq<string> GetCardDeskNames() =>
+        _cardDesks.Keys.ToSeq();
 }

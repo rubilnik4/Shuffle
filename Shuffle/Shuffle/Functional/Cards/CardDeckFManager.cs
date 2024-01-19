@@ -49,7 +49,7 @@ public static class CardDeckFManager<TRun>
         select cardDeck.DeckName;
 
     /// <summary>
-    /// Удалить колоду
+    /// Показать колоду
     /// </summary>
     public static Eff<TRun, string> ShowDeskCard() =>
         from cardDeckName in InputProvider<TRun>.GetValue("Введите название колоды для просмотра")
@@ -57,6 +57,14 @@ public static class CardDeckFManager<TRun>
         from _1 in Logger<TRun>.Log($"Получена колода {cardDeck.DeckName}")
         from _2 in ShowCardDeck(cardDeck)
         select cardDeck.DeckName;
+
+    /// <summary>
+    /// Показать имена колод
+    /// </summary>
+    public static Eff<TRun, Unit> ShowDeskCardNames() =>
+        from cardDeckNames in CardDeckStorage<TRun>.GetCardDeckNames()
+        from _2 in ShowCardDeckNames(cardDeckNames)
+        select Unit.Default;
 
     /// <summary>
     /// Создать карточную колоду
@@ -81,6 +89,15 @@ public static class CardDeckFManager<TRun>
     {
         var cardNames = cardDeck.Cards.Select(card => $"{card.CardRankType}-{card.CardSuitType}");
         var name = String.Join("; ", cardNames);
+        return Logger<TRun>.Log(name);
+    }
+
+    /// <summary>
+    /// Показать названия карточных колод
+    /// </summary>
+    private static Eff<TRun, Unit> ShowCardDeckNames(Seq<string> cardDeckNames)
+    {
+        var name = "Список колод: " + String.Join("; ", cardDeckNames);
         return Logger<TRun>.Log(name);
     }
 }

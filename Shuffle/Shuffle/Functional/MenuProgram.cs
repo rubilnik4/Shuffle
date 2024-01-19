@@ -17,6 +17,7 @@ public static class MenuProgram<TRun>
         from createId in CardDeckFManager<TRun>.CreateDeskCard()
         from shuffleId in CardDeckFManager<TRun>.ShuffleDeskCard()
         from showId in CardDeckFManager<TRun>.ShowDeskCard()
+        from _ in CardDeckFManager<TRun>.ShowDeskCardNames()
         from deleteId in CardDeckFManager<TRun>.DeleteDeskCard()
         select Unit.Default;
 }

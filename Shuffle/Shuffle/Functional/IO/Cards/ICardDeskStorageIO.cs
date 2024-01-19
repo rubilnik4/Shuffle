@@ -28,4 +28,9 @@ public interface ICardDeskStorageIO
     /// Обновить колоду
     /// </summary>
     Validation<Error, CardDeck> DeleteCardDeck(string cardDeckName);
+
+    /// <summary>
+    /// Список наименований колод
+    /// </summary>
+    Seq<string> GetCardDeskNames();
 }

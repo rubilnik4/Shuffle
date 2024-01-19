@@ -5,9 +5,9 @@ namespace Shuffle.OOP.Infrastructure.Cards;
 /// <summary>
 /// Фабрика карточных колод
 /// </summary>
-public class CardDeskFactory : ICardDeskFactory
+public class CardDeckFactory : ICardDeskFactory
 {
-    public CardDeskFactory(ICardShuffle cardShuffle)
+    public CardDeckFactory(ICardShuffle cardShuffle)
     {
         _cardShuffle = cardShuffle;
     }

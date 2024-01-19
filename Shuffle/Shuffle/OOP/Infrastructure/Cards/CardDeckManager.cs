@@ -6,9 +6,9 @@ namespace Shuffle.OOP.Infrastructure.Cards;
 /// <summary>
 /// Управление колодой
 /// </summary>
-public class CardDeskManager : ICardDeskManager
+public class CardDeckManager : ICardDeskManager
 {
-    public CardDeskManager(ICardDeskFactory cardDeskFactory, ICardDeckStorage cardDeckStorage,
+    public CardDeckManager(ICardDeskFactory cardDeskFactory, ICardDeckStorage cardDeckStorage,
                            ILogger logger, IInputProvider inputProvider)
     {
         _cardDeskFactory = cardDeskFactory;

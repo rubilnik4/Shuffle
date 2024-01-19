@@ -12,5 +12,20 @@ public interface ICardDeskStorageIO
     /// <summary>
     /// Добавить колоду
     /// </summary>
-    Validation<Error, string> AddDesk(CardDeck cardDeck);
+    Validation<Error, string> AddCardDeck(CardDeck cardDeck);
+
+    /// <summary>
+    /// Получить колоду
+    /// </summary>
+    Validation<Error, CardDeck> GetCardDeck(string cardDeckName);
+
+    /// <summary>
+    /// Обновить колоду
+    /// </summary>
+    Validation<Error, Unit> UpdateCardDeck(CardDeck cardDeck);
+
+    /// <summary>
+    /// Обновить колоду
+    /// </summary>
+    Validation<Error, CardDeck> DeleteCardDeck(string cardDeckName);
 }

@@ -2,13 +2,14 @@
 using LanguageExt;
 using LanguageExt.Common;
 using Shuffle.Common.Models;
+using Shuffle.OOP.Infrastructure.Cards;
 
 namespace Shuffle.Functional.Cards;
 
 /// <summary>
 /// Создание колоды
 /// </summary>
-public static class CardDeskFFactory
+public static class CardDeckFFactory
 {
     /// <summary>
     /// Создать колоду определенного типа
@@ -20,6 +21,15 @@ public static class CardDeskFFactory
             CardDeckType.Standard52 => GetDeck52(cardDeckName),
             _ => Error.New(new ArgumentOutOfRangeException(nameof(cardDeckType), cardDeckType, null))
         };
+
+    /// <summary>
+    /// Перетасовать колоду
+    /// </summary>
+    public static CardDeck ShuffleCardDeck(CardDeck cardDeck, Func<IReadOnlyList<Card>, IReadOnlyList<Card>> shuffle)
+    {
+        var cards = shuffle(cardDeck.Cards);
+        return new CardDeck(cardDeck.DeckName, cards);
+    }
 
     /// <summary>
     /// Получить колоду на 52 карты

@@ -14,6 +14,8 @@ public static class MenuProgram<TRun>
     /// Запустить
     /// </summary>
     public static Eff<TRun, Unit> Start() =>
-        from cardDeskName in CardDeskCreate<TRun>.CreateDeskCard()
+        from createId in CardDeckFManager<TRun>.CreateDeskCard()
+        from shuffleId in CardDeckFManager<TRun>.ShuffleDeskCard()
+        from deleteId in CardDeckFManager<TRun>.DeleteDeskCard()
         select Unit.Default;
 }

@@ -9,11 +9,11 @@ using Shuffle.OOP.Infrastructure.Cards;
 using Shuffle.OOP.Infrastructure.Common;
 
 var cardShuffle = new CardFisherYatesShuffle();
-var cardDeskFactory = new CardDeskFactory(cardShuffle);
+var cardDeskFactory = new CardDeckFactory(cardShuffle);
 var cardDeskStorage = new CardDeckStorage();
 var logger = new ConsoleLogger();
 var inputProvider = new ConsoleInputProvider();
-var cardDeskManager = new CardDeskManager(cardDeskFactory, cardDeskStorage, logger, inputProvider);
+var cardDeskManager = new CardDeckManager(cardDeskFactory, cardDeskStorage, logger, inputProvider);
 
 var cardDeckStorageIO = new CardDeckStorageIO();
 var loggerIO = new LoggerIO();

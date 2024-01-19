@@ -1,4 +1,5 @@
 ﻿using LanguageExt;
+using LanguageExt.Common;
 
 namespace Shuffle.Functional.IO.Common;
 
@@ -11,4 +12,9 @@ public interface IInputProviderIO
     /// Получить значение
     /// </summary>
     Option<string> GetValue(string question);
+
+    /// <summary>
+    /// Получить значение
+    /// </summary>
+    Option<int> GetNumber(string question);
 }

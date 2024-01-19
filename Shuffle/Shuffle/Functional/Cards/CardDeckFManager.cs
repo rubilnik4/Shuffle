@@ -18,18 +18,18 @@ public static class CardDeckFManager<TRun>
     /// <summary>
     /// Инициализировать колоду
     /// </summary>
-    public static Eff<TRun, string> CreateDeskCard() =>
+    public static Eff<TRun, Unit> CreateDeskCard() =>
         from cardDeckName in InputProvider<TRun>.GetValue("Введите название колоды для создания")
         from cardDeck in CreateCardDeck(cardDeckName)
         from _1 in Logger<TRun>.Log($"Создана колода {cardDeck.DeckName}")
         from addCardDeckName in CardDeckStorage<TRun>.AddCardDeck(cardDeck)
         from _2 in Logger<TRun>.Log($"Колода {cardDeck.DeckName} записана в базу")
-        select addCardDeckName;
+        select Unit.Default;
 
     /// <summary>
     /// Перетасовать колоду
     /// </summary>
-    public static Eff<TRun, string> ShuffleDeskCard() =>
+    public static Eff<TRun, Unit> ShuffleDeskCard() =>
         from cardDeckName in InputProvider<TRun>.GetValue("Введите название колоды для перетасовки")
         from cardDeck in CardDeckStorage<TRun>.GetCardDeck(cardDeckName)
         from _1 in Logger<TRun>.Log($"Получена колода {cardDeck.DeckName}")
@@ -37,26 +37,26 @@ public static class CardDeckFManager<TRun>
         from _2 in Logger<TRun>.Log($"Перетасована колода {cardDeckShuffle.DeckName}")
         from _3 in CardDeckStorage<TRun>.UpdateCardDeck(cardDeckShuffle)
         from _4 in Logger<TRun>.Log($"Колода {cardDeckShuffle.DeckName} обновлена в базе")
-        select cardDeckName;
+        select Unit.Default;
 
     /// <summary>
     /// Удалить колоду
     /// </summary>
-    public static Eff<TRun, string> DeleteDeskCard() =>
+    public static Eff<TRun, Unit> DeleteDeskCard() =>
         from cardDeckName in InputProvider<TRun>.GetValue("Введите название колоды для удаления")
         from cardDeck in CardDeckStorage<TRun>.DeleteCardDeck(cardDeckName)
         from _2 in Logger<TRun>.Log($"Колода {cardDeck.DeckName} удалена в базе")
-        select cardDeck.DeckName;
+        select Unit.Default;
 
     /// <summary>
     /// Показать колоду
     /// </summary>
-    public static Eff<TRun, string> ShowDeskCard() =>
+    public static Eff<TRun, Unit> ShowDeskCard() =>
         from cardDeckName in InputProvider<TRun>.GetValue("Введите название колоды для просмотра")
         from cardDeck in CardDeckStorage<TRun>.GetCardDeck(cardDeckName)
         from _1 in Logger<TRun>.Log($"Получена колода {cardDeck.DeckName}")
         from _2 in ShowCardDeck(cardDeck)
-        select cardDeck.DeckName;
+        select Unit.Default;
 
     /// <summary>
     /// Показать имена колод

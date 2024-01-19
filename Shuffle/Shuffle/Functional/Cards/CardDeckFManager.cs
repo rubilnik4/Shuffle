@@ -45,7 +45,17 @@ public static class CardDeckFManager<TRun>
     public static Eff<TRun, string> DeleteDeskCard() =>
         from cardDeckName in InputProvider<TRun>.GetValue("Введите название колоды для удаления")
         from cardDeck in CardDeckStorage<TRun>.DeleteCardDeck(cardDeckName)
-        from _2 in Logger<TRun>.Log($"Колода {cardDeck.DeckName} удалена в базу")
+        from _2 in Logger<TRun>.Log($"Колода {cardDeck.DeckName} удалена в базе")
+        select cardDeck.DeckName;
+
+    /// <summary>
+    /// Удалить колоду
+    /// </summary>
+    public static Eff<TRun, string> ShowDeskCard() =>
+        from cardDeckName in InputProvider<TRun>.GetValue("Введите название колоды для просмотра")
+        from cardDeck in CardDeckStorage<TRun>.GetCardDeck(cardDeckName)
+        from _1 in Logger<TRun>.Log($"Получена колода {cardDeck.DeckName}")
+        from _2 in ShowCardDeck(cardDeck)
         select cardDeck.DeckName;
 
     /// <summary>
@@ -62,5 +72,15 @@ public static class CardDeckFManager<TRun>
     {
         var cards = CardDeckShuffleAlgorithm.FisherYatesShuffle(cardDeck.Cards);
         return Prelude.SuccessEff(new CardDeck(cardDeck.DeckName, cards));
+    }
+
+    /// <summary>
+    /// Показать карточную колоду
+    /// </summary>
+    private static Eff<TRun, Unit> ShowCardDeck(CardDeck cardDeck)
+    {
+        var cardNames = cardDeck.Cards.Select(card => $"{card.CardRankType}-{card.CardSuitType}");
+        var name = String.Join("; ", cardNames);
+        return Logger<TRun>.Log(name);
     }
 }
